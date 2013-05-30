@@ -1,0 +1,214 @@
+2013-05-22 19:54:25 overwrite stylesheets/screen.css 
+2013-05-22 19:54:38 identical stylesheets/screen.css 
+2013-05-22 19:55:52 overwrite stylesheets/screen.css 
+2013-05-22 19:55:56 overwrite stylesheets/screen.css 
+2013-05-22 19:56:24 identical stylesheets/print.css 
+2013-05-22 19:56:24 overwrite stylesheets/screen.css 
+2013-05-22 19:56:39 overwrite stylesheets/screen.css 
+2013-05-22 19:56:41 identical stylesheets/screen.css 
+2013-05-24 22:18:46 identical stylesheets/screen.css 
+2013-05-26 09:03:40     error sass/screen.sass (Line 12: Inconsistent indentation: 2 spaces were used for indentation, but the rest of the document was indented using 1 tab.)
+2013-05-26 09:03:41 overwrite stylesheets/screen.css 
+2013-05-26 09:03:41     error sass/screen.sass (Line 12: Inconsistent indentation: 2 spaces were used for indentation, but the rest of the document was indented using 1 tab.)
+2013-05-26 09:03:41 identical stylesheets/screen.css 
+2013-05-26 09:03:51 overwrite stylesheets/screen.css 
+2013-05-26 09:04:08 identical stylesheets/screen.css 
+2013-05-26 09:04:20 identical stylesheets/screen.css 
+2013-05-26 09:05:02     error sass/screen.sass (Line 8: Invalid CSS after "12": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 09:05:02 overwrite stylesheets/screen.css 
+2013-05-26 09:05:09     error sass/screen.sass (Line 8: Invalid CSS after "12": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 09:05:09 identical stylesheets/screen.css 
+2013-05-26 09:05:14     error sass/screen.sass (Line 8: Invalid CSS after "12": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 09:05:14 identical stylesheets/screen.css 
+2013-05-26 09:05:21     error sass/screen.sass (Line 8: Invalid CSS after "12": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 09:05:21 identical stylesheets/screen.css 
+2013-05-26 09:05:42     error sass/screen.sass (Line 8: Invalid CSS after "12": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 09:05:42 identical stylesheets/screen.css 
+2013-05-26 09:05:44     error sass/screen.sass (Line 8: Invalid CSS after "12": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 09:05:44 identical stylesheets/screen.css 
+2013-05-26 09:05:45     error sass/screen.sass (Line 8: Invalid CSS after "12": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 09:05:45 identical stylesheets/screen.css 
+2013-05-26 09:05:48     error sass/screen.sass (Line 8: Invalid CSS after "12": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 09:05:48 identical stylesheets/screen.css 
+2013-05-26 09:05:51     error sass/screen.sass (Line 8: Invalid CSS after "12": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 09:05:51 identical stylesheets/screen.css 
+2013-05-26 09:05:56     error sass/screen.sass (Line 8: Invalid CSS after "12": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 09:05:56 identical stylesheets/screen.css 
+2013-05-26 09:06:00     error sass/screen.sass (Line 8: Invalid CSS after "12": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 09:06:00 identical stylesheets/screen.css 
+2013-05-26 09:06:03     error sass/screen.sass (Line 8: Invalid CSS after "12": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 09:06:03 identical stylesheets/screen.css 
+2013-05-26 09:06:05     error sass/screen.sass (Line 8: Invalid CSS after "12": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 09:06:05 identical stylesheets/screen.css 
+2013-05-26 09:06:13 overwrite stylesheets/screen.css 
+2013-05-26 09:06:14     error sass/screen.sass (Line 17: Invalid CSS after "": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 09:06:14 overwrite stylesheets/screen.css 
+2013-05-26 09:06:18 overwrite stylesheets/screen.css 
+2013-05-26 09:06:20 identical stylesheets/screen.css 
+2013-05-26 09:06:22 identical stylesheets/screen.css 
+2013-05-26 09:06:37 overwrite stylesheets/screen.css 
+2013-05-26 09:28:39 overwrite stylesheets/screen.css 
+2013-05-26 09:28:54 overwrite stylesheets/screen.css 
+2013-05-26 09:29:04 overwrite stylesheets/screen.css 
+2013-05-26 09:29:05 identical stylesheets/screen.css 
+2013-05-26 09:53:04     error sass/screen.sass (Line 20: Invalid CSS after "(10,12)": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 09:53:04 overwrite stylesheets/screen.css 
+2013-05-26 09:53:15 overwrite stylesheets/screen.css 
+2013-05-26 09:53:39 overwrite stylesheets/screen.css 
+2013-05-26 09:53:42 identical stylesheets/screen.css 
+2013-05-26 09:53:45 overwrite stylesheets/screen.css 
+2013-05-26 09:55:28 identical stylesheets/screen.css 
+2013-05-26 09:58:00 identical stylesheets/screen.css 
+2013-05-26 10:00:32     error sass/screen.sass (Line 15: Invalid CSS after "...ial, sans-serif": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 10:00:32 overwrite stylesheets/screen.css 
+2013-05-26 10:00:34     error sass/screen.sass (Line 15: Invalid CSS after "...ial, sans-serif": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 10:00:34 identical stylesheets/screen.css 
+2013-05-26 10:00:35     error sass/screen.sass (Line 15: Invalid CSS after "...ial, sans-serif": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 10:00:35 identical stylesheets/screen.css 
+2013-05-26 10:00:37 overwrite stylesheets/screen.css 
+2013-05-26 10:00:40 identical stylesheets/screen.css 
+2013-05-26 10:00:48 overwrite stylesheets/screen.css 
+2013-05-26 10:00:55 identical stylesheets/screen.css 
+2013-05-26 10:01:01 overwrite stylesheets/screen.css 
+2013-05-26 10:02:00 identical stylesheets/screen.css 
+2013-05-26 10:02:06 overwrite stylesheets/screen.css 
+2013-05-26 10:08:30 overwrite stylesheets/screen.css 
+2013-05-26 10:08:33 identical stylesheets/screen.css 
+2013-05-26 10:08:54 overwrite stylesheets/screen.css 
+2013-05-26 10:09:06 overwrite stylesheets/screen.css 
+2013-05-26 10:09:39 identical stylesheets/screen.css 
+2013-05-26 10:10:07 overwrite stylesheets/screen.css 
+2013-05-26 10:11:16     error sass/screen.sass (Line 28: Invalid CSS after "": expected expression (e.g. 1px, bold), was "{")
+2013-05-26 10:11:16 overwrite stylesheets/screen.css 
+2013-05-26 10:11:17     error sass/screen.sass (Line 28: Invalid CSS after "": expected expression (e.g. 1px, bold), was "{")
+2013-05-26 10:11:17 identical stylesheets/screen.css 
+2013-05-26 10:11:33 overwrite stylesheets/screen.css 
+2013-05-26 10:11:45 overwrite stylesheets/screen.css 
+2013-05-26 10:11:51 identical stylesheets/screen.css 
+2013-05-26 10:12:03 overwrite stylesheets/screen.css 
+2013-05-26 10:12:16 overwrite stylesheets/screen.css 
+2013-05-26 10:12:33 overwrite stylesheets/screen.css 
+2013-05-26 10:12:36 overwrite stylesheets/screen.css 
+2013-05-26 10:12:49 overwrite stylesheets/screen.css 
+2013-05-26 10:13:26     error sass/screen.sass (Line 5: Invalid CSS after "...+Sans:400,300")": expected media query list, was ";")
+2013-05-26 10:13:26 overwrite stylesheets/screen.css 
+2013-05-26 10:13:37 overwrite stylesheets/screen.css 
+2013-05-26 10:14:13 overwrite stylesheets/screen.css 
+2013-05-26 10:14:52 overwrite stylesheets/screen.css 
+2013-05-26 10:15:22     error sass/screen.sass (Line 43: Invalid CSS after "20px 0": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 10:15:22 overwrite stylesheets/screen.css 
+2013-05-26 10:15:28 overwrite stylesheets/screen.css 
+2013-05-26 10:16:09 overwrite stylesheets/screen.css 
+2013-05-26 10:16:25     error sass/screen.sass (Line 47: Invalid CSS after "18px": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 10:16:25 overwrite stylesheets/screen.css 
+2013-05-26 10:16:26     error sass/screen.sass (Line 47: Invalid CSS after "18px": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 10:16:26 identical stylesheets/screen.css 
+2013-05-26 10:16:33 overwrite stylesheets/screen.css 
+2013-05-26 10:16:45 identical stylesheets/screen.css 
+2013-05-26 10:17:01 overwrite stylesheets/screen.css 
+2013-05-26 10:17:03 identical stylesheets/screen.css 
+2013-05-26 10:17:33 overwrite stylesheets/screen.css 
+2013-05-26 10:17:36 overwrite stylesheets/screen.css 
+2013-05-26 10:18:29     error sass/screen.sass (Line 23: Invalid CSS after ""."": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 10:18:29 overwrite stylesheets/screen.css 
+2013-05-26 10:19:37 overwrite stylesheets/screen.css 
+2013-05-26 10:20:18 identical stylesheets/screen.css 
+2013-05-26 10:20:28 identical stylesheets/screen.css 
+2013-05-26 10:20:37 identical stylesheets/screen.css 
+2013-05-26 10:20:39 identical stylesheets/screen.css 
+2013-05-26 10:21:15 identical stylesheets/screen.css 
+2013-05-26 10:21:19 identical stylesheets/screen.css 
+2013-05-26 10:21:49 identical stylesheets/screen.css 
+2013-05-26 10:26:47     error sass/screen.sass (Line 55: Invalid CSS after "#E67E22": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 10:26:47 overwrite stylesheets/screen.css 
+2013-05-26 10:26:49 overwrite stylesheets/screen.css 
+2013-05-26 10:33:35 overwrite stylesheets/screen.css 
+2013-05-26 10:33:43 overwrite stylesheets/screen.css 
+2013-05-26 10:33:59     error sass/screen.sass (Line 40: Invalid CSS after "20px": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 10:33:59 overwrite stylesheets/screen.css 
+2013-05-26 10:34:03 overwrite stylesheets/screen.css 
+2013-05-26 10:34:16 overwrite stylesheets/screen.css 
+2013-05-26 10:34:49     error sass/screen.sass (Line 51: Invalid CSS after "1.7": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 10:34:49 overwrite stylesheets/screen.css 
+2013-05-26 10:34:52 overwrite stylesheets/screen.css 
+2013-05-26 10:35:01     error sass/screen.sass (Line 52: Invalid CSS after "10px 0": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 10:35:01 overwrite stylesheets/screen.css 
+2013-05-26 10:35:03 overwrite stylesheets/screen.css 
+2013-05-26 10:35:22 overwrite stylesheets/screen.css 
+2013-05-26 10:35:24 identical stylesheets/screen.css 
+2013-05-26 10:35:50 overwrite stylesheets/screen.css 
+2013-05-26 10:36:13 overwrite stylesheets/screen.css 
+2013-05-26 10:36:24 overwrite stylesheets/screen.css 
+2013-05-26 10:37:21 overwrite stylesheets/screen.css 
+2013-05-26 10:39:26 overwrite stylesheets/screen.css 
+2013-05-26 10:43:38 overwrite stylesheets/screen.css 
+2013-05-26 10:50:02 overwrite stylesheets/screen.css 
+2013-05-26 10:50:41     error sass/screen.sass (Line 37: Invalid CSS after "blockquote:before ": expected selector, was "{")
+2013-05-26 10:50:41 overwrite stylesheets/screen.css 
+2013-05-26 10:50:44 overwrite stylesheets/screen.css 
+2013-05-26 10:50:47 identical stylesheets/screen.css 
+2013-05-26 10:50:57 overwrite stylesheets/screen.css 
+2013-05-26 10:51:45     error sass/screen.sass (Line 63: Invalid CSS after ""Droid Sans", Sans": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 10:51:45 overwrite stylesheets/screen.css 
+2013-05-26 10:51:50 overwrite stylesheets/screen.css 
+2013-05-26 10:52:12 overwrite stylesheets/screen.css 
+2013-05-26 10:54:56 overwrite stylesheets/screen.css 
+2013-05-26 10:55:17 overwrite stylesheets/screen.css 
+2013-05-26 10:57:51 overwrite stylesheets/screen.css 
+2013-05-26 10:58:00 overwrite stylesheets/screen.css 
+2013-05-26 10:58:06 overwrite stylesheets/screen.css 
+2013-05-26 10:58:08 identical stylesheets/screen.css 
+2013-05-26 10:58:12 overwrite stylesheets/screen.css 
+2013-05-26 10:58:24 overwrite stylesheets/screen.css 
+2013-05-26 10:58:33 overwrite stylesheets/screen.css 
+2013-05-26 10:58:35 overwrite stylesheets/screen.css 
+2013-05-26 10:58:50 overwrite stylesheets/screen.css 
+2013-05-26 10:59:39 overwrite stylesheets/screen.css 
+2013-05-26 11:00:00 overwrite stylesheets/screen.css 
+2013-05-26 11:00:14 overwrite stylesheets/screen.css 
+2013-05-26 11:00:47 overwrite stylesheets/screen.css 
+2013-05-26 11:00:50 identical stylesheets/screen.css 
+2013-05-26 11:03:18 overwrite stylesheets/screen.css 
+2013-05-26 11:04:43     error sass/screen.sass (Line 68: Invalid CSS after "42px": expected expression (e.g. 1px, bold), was ";")
+2013-05-26 11:04:43 overwrite stylesheets/screen.css 
+2013-05-26 11:04:53 overwrite stylesheets/screen.css 
+2013-05-26 11:05:07     error sass/screen.sass (Line 77: Invalid property: "font:" (no value).)
+2013-05-26 11:05:07 overwrite stylesheets/screen.css 
+2013-05-26 11:05:11 overwrite stylesheets/screen.css 
+2013-05-26 11:05:24 overwrite stylesheets/screen.css 
+2013-05-26 11:05:27 overwrite stylesheets/screen.css 
+2013-05-26 11:06:12 identical stylesheets/screen.css 
+2013-05-26 11:06:17 overwrite stylesheets/screen.css 
+2013-05-26 11:06:18 identical stylesheets/screen.css 
+2013-05-26 11:06:20 overwrite stylesheets/screen.css 
+2013-05-26 11:06:39     error sass/screen.sass (Line 67: Properties are only allowed within rules, directives, mixin includes, or other properties.)
+2013-05-26 11:06:39 overwrite stylesheets/screen.css 
+2013-05-26 11:06:42 overwrite stylesheets/screen.css 
+2013-05-26 11:06:47 identical stylesheets/screen.css 
+2013-05-26 11:07:17 overwrite stylesheets/screen.css 
+2013-05-26 11:19:15 overwrite stylesheets/screen.css 
+2013-05-26 11:19:24 identical stylesheets/screen.css 
+2013-05-26 11:19:29 identical stylesheets/screen.css 
+2013-05-26 11:19:41 overwrite stylesheets/screen.css 
+2013-05-26 11:19:44 overwrite stylesheets/screen.css 
+2013-05-26 11:25:39 overwrite stylesheets/screen.css 
+2013-05-26 11:30:14 overwrite stylesheets/screen.css 
+2013-05-26 11:46:04 overwrite stylesheets/screen.css 
+2013-05-26 21:53:55 overwrite stylesheets/screen.css 
+2013-05-26 21:55:04 overwrite stylesheets/screen.css 
+2013-05-26 21:56:46 overwrite stylesheets/screen.css 
+2013-05-26 22:07:10     error sass/screen.sass (Line 137: Inconsistent indentation: 2 spaces were used for indentation, but the rest of the document was indented using 4 spaces.)
+2013-05-26 22:07:10 overwrite stylesheets/screen.css 
+2013-05-26 22:07:11     error sass/screen.sass (Line 137: Inconsistent indentation: 2 spaces were used for indentation, but the rest of the document was indented using 4 spaces.)
+2013-05-26 22:07:11 identical stylesheets/screen.css 
+2013-05-26 22:07:30 overwrite stylesheets/screen.css 
+2013-05-26 22:08:53 identical stylesheets/screen.css 
+2013-05-26 22:08:55 identical stylesheets/screen.css 
+2013-05-29 16:22:20     error sass/screen.sass (Line 121: Invalid CSS after "left": expected expression (e.g. 1px, bold), was ";")
+2013-05-29 16:22:20 overwrite stylesheets/screen.css 
+2013-05-29 16:22:21     error sass/screen.sass (Line 121: Invalid CSS after "left": expected expression (e.g. 1px, bold), was ";")
+2013-05-29 16:22:21 identical stylesheets/screen.css 
+2013-05-29 16:22:24 overwrite stylesheets/screen.css 
+2013-05-29 16:23:19 overwrite stylesheets/screen.css 
+2013-05-29 16:23:47 overwrite stylesheets/screen.css 
+2013-05-29 16:24:05 overwrite stylesheets/screen.css 

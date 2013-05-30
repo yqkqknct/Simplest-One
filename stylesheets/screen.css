@@ -1,0 +1,335 @@
+@charset "UTF-8";
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300");
+@import url("http://fonts.googleapis.com/css?family=Droid+Serif");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+body {
+  font: 15px/1.7em "Open Sans", Arial, sans-serif;
+  letter-spacing: 0.05em;
+  color: #474747;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+* html .clearfix {
+  height: 1%;
+}
+
+.clearfix {
+  display: block;
+}
+
+blockquote:before {
+  content: "‘‘";
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 101px;
+  color: #dddddd;
+  position: absolute;
+  left: 0;
+  top: 47px;
+}
+
+blockquote {
+  padding: 10px 10px 10px 50px;
+  font-size: 15px;
+  position: relative;
+  color: #575757;
+}
+
+pre {
+  margin: 15px 0;
+  padding: 10px 30px;
+  border-top: 1px solid #dedede;
+  border-bottom: 1px solid #dedede;
+  font-family: "Droid Serif";
+  font-size: 14px;
+  color: #777777;
+}
+
+.container {
+  *zoom: 1;
+  max-width: 71em;
+  _width: 71em;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column-left {
+  width: 74.64789%;
+  float: left;
+  margin-right: 1.40845%;
+  display: inline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans";
+  font-weight: 300;
+  color: #444444;
+  text-rendering: optimizeLegibility;
+  padding-top: 0.273em;
+  line-height: 1.15538em;
+  padding-bottom: 0.273em;
+}
+
+h1 {
+  font-size: 42px;
+  font-size: 2.625rem;
+  font-family: "Open Sans", "微軟正黑體", sans-serif;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 34px;
+  font-family: "Open Sans", "微軟正黑體", sans-serif;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 26px;
+  font-size: 1.625rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  color: #777777;
+  line-height: 2em;
+}
+
+article p {
+  line-height: 1.7;
+  margin: 10px 0;
+  color: #555555;
+  font-family: "Droid Serif", Serif;
+}
+
+.cont-title {
+  margin: 10px 0;
+}
+.cont-title a {
+  text-decoration: none;
+  line-height: 42px;
+  color: #555555;
+  font-weight: 300;
+  letter-spacing: -2.5px;
+}
+.cont-title a:hover {
+  color: #e67e22;
+}
+
+.article {
+  border-bottom: 1px solid #eeeeee;
+  margin: 0 0 20px 0;
+  padding: 20px 0;
+  clear: both;
+}
+
+.article .article-meta:after {
+  display: table;
+  clear: both;
+}
+
+.meta-category, .meta-time, .meta-comment {
+  float: left;
+  margin-right: 10px;
+}
+
+.more-link {
+  text-decoration: none;
+  font-size: 18px;
+  color: #888888;
+  float: right;
+}
+
+.footer {
+  *zoom: 1;
+  max-width: 71em;
+  _width: 71em;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding: 30px 0;
+}
+.footer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.footer .footer-copyright {
+  float: left;
+}
+.footer .footer-meta {
+  float: right;
+}
+
+#comments li {
+  list-style: none;
+}
+
+#comments li.comment_list_box {
+  padding: 10px 0 20px 55px;
+  margin: 0;
+  list-style: none;
+  background: white;
+  margin: 20px 0;
+  border-bottom: 1px solid #eeeeee;
+  position: relative;
+}
+
+#comments li.comment_list_box .comment-author img {
+  position: absolute;
+  left: 0;
+  float: left;
+  margin: 0px 10px 5px 0px;
+  border-radius: 50%;
+  border: 1px solid #cccccc;
+}
+
+#comments li.comment_list_box a.comment-reply-link {
+  border: 1px solid #dddddd;
+  padding: 5px 13px;
+  color: #888888;
+  border-radius: 20px;
+  font-size: 13px;
+  display: inline-block;
+}
+
+#comments li.comment_list_box a.comment-reply-link:hover {
+  background: #eeeeee;
+  color: #888888;
+  text-decoration: none;
+}
+
+#comments ul.children {
+  margin: 0;
+}
+
+#comments ul.children li {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+#comments ul.children ul {
+  margin-left: 20px;
+}
+
+#comments p {
+  line-height: 1.5;
+  margin: 20px 0;
+}
+
+#comments input[type="text"] {
+  width: 30%;
+}
+
+#comments .comment-meta {
+  font-size: 13px;
+  line-height: 21px;
+  color: #999999;
+}
+
+ol.comment_list {
+  margin: 10px 0 10px 0;
+}
+
+.paviinfo {
+  margin: 10px 0;
+  border-left: 10px solid #cccccc;
+  padding-left: 10px;
+}
+
+.pagenavi {
+  display: block;
+  float: left;
+  margin: 0px 0 20px 0;
+}
+
+.page-numbers {
+  background: #999999;
+  border-radius: 20px;
+  padding: 5px 10px;
+  color: white;
+  display: inline;
+  text-shadow: none;
+}
+
+.page-numbers.current {
+  background: #666666;
+}
+
+.page-numbers:hover {
+  color: white;
+  background: #666666;
+  text-decoration: none;
+}
