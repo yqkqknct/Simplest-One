@@ -17,7 +17,7 @@ function add_user_porfile( $contactmethods ) {
 	$contactmethods['google'] = 'Google+ 個人網址';
 	$contactmethods['facebook'] = 'Facebook 個人網址';
 	$contactmethods['twitter'] = 'Twitter 個人網址';
-	$contactmethods['description_url'] = '個人介紹面頁';
+	$contactmethods['description_url'] = '個人介紹頁';
 	return $contactmethods;
 }
 add_filter('user_contactmethods','add_user_porfile',10,1);
@@ -26,14 +26,12 @@ function postauthor_init(){
 	global $post;
 	//if (is_option('author')){
 ?>
-<div class="author">
-	<div class="avatar"><?php echo get_avatar(get_the_author_meta('ID'), 100);?></div>
-	<div class="text">
-		<span class="name">作者：<?php the_author_meta('display_name');?></span>
-		<span class="description">
-				<?php the_author_meta('description');?>
-		</span>
-		<div class="social">
+<section class="article-author">
+	<div class="author-top"><span>關於作者</span></div>
+	<div class="author-avatar"><?php echo get_avatar(get_the_author_meta('ID'), 100);?></div>
+	<div class="author-text">
+		<h3 class="author-name"><?php the_author_meta('display_name');?></h3>
+		<div class="author-social">
 			<?php if ( get_the_author_meta( 'google' ) ): ?>
 				<a href="<?php the_author_meta('google');?>?rel=author" title="我的G+">Google+</a> | <?php endif;?>
 			<?php if ( get_the_author_meta( 'facebook' ) ): ?>
@@ -43,84 +41,23 @@ function postauthor_init(){
 			<?php if ( get_the_author_meta( 'description_url' ) ): ?>
 				<a href="<?php the_author_meta('description_url');?>" title="<?php the_author_meta('display_name');?> 個人介紹">個人介紹</a> | <?php endif;?>
 				<a href="<?php echo get_author_posts_url(get_the_author_meta('ID'));?>" title="更多<?php the_author_meta('display_name');?>的文章">更多文章 &gt; </a></span>
-		</div>
+		</div>		
+		<span class="author-description">
+				<?php the_author_meta('description');?>
+		</span>
+
 	</div>
-</div>
+</section>
 <?php
 	//}
 }
 
-function breadcrumb_init($nickname = ''){
-	global $post,$theme_dir;
-?>
-
-<ul class="breadcrumb">
-
-<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-	<i class="icon-home"></i>
-	<a href="<?php bloginfo('url');?>" itemprop="url" title="<?php bloginfo('name');?>">
-		<span itemprop="title"><?php bloginfo('name');?></span></a> <span class="divider">›</span>
-</li>
-
-<?php
-if( is_single() ):
-foreach ((get_the_category()) as $category) {
-	echo '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">';
-	echo '<a href="' . get_category_link($category -> term_id) . '" itemprop="url" title=' . $category -> cat_name . '> <span itemprop="title">' . $category -> cat_name . '</span></a> <span class="divider">›</span>';
-	echo '</li>';
+add_action('init', 'need_use_jquery');
+function need_use_jquery() {
+    if( !is_admin() ) {
+        wp_enqueue_script('jquery');
+    }
 }
-else:
-?>
-<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="active">
-		<span itemprop="title">
-			<?php
-	if (is_category()) {
-		echo single_cat_title();
-	} elseif (is_author()) {
-		echo $nickname;
-	} elseif (is_tag()) {
-		echo single_tag_title('', true);
-	} elseif (is_day()) {
-		the_time(get_option('date_format'));
-	} elseif (is_month()) {
-		the_time('F, Y');
-	} elseif (is_year()) {
-		the_time('Y');
-	}
-?></span>
-</li>
-<?php
-endif;
-if( is_single() ):
-?>
-<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="active" title="<?php the_title();?>">
-    <span itemprop="title"><?php the_title();?></span>
-</li>
-<?php
-endif;
-?>
-</ul>
-<?php
-
-}
-
-
-function colorCloud($text) {
-	$text = preg_replace_callback('|<a (.+?)>|i', 'colorCloudCallback', $text);
-	return $text;
-}
-
-
-function colorCloudCallback($matches) {
-	$text = $matches[1];
-	$color = dechex(rand(0,16777215));
-	$pattern = '/style=(\'|\")(.*)(\'|\")/i';
-	$text = preg_replace($pattern, "style=\"color:#{$color};$2\"", $text);
-	return "<a $text>";
-}
-add_filter('wp_tag_cloud', 'colorCloud', 1);
-
-
 
 function insert_fb_in_head() {
 	global $post;
@@ -310,7 +247,7 @@ function pagenavi($range = 5){
 		if(!$paged){
 			$paged = 1;
 		}
-		echo '<ul><li class="paviinfo disabled"><a>第'.$paged.'頁、共'.$max_page.'頁</a></li>';
+		echo '<ul class="pagenavi"><li class="navi-info disabled">第'.$paged.'頁、共'.$max_page.'頁</li>';
 		if($paged != 1){
 			echo "<a href='" . get_pagenum_link(1) . "' class='extend' title='首頁'>首頁</a>";
 		}
@@ -319,70 +256,53 @@ function pagenavi($range = 5){
 			if($paged < $range){
 				for($i = 1; $i <= ($range + 1); $i++){
 					if ($i==$paged){  $dis = "disabled"; }else{ $dis = "";}
-					echo "<li class='spagenum ".$dis."'><a title=".'"第'.$i.'頁"'. " href='" . get_pagenum_link($i) ."'>$i</a></li>";
+					echo "<li class='navi-num ".$dis."'><a title=".'"第'.$i.'頁"'. " href='" . get_pagenum_link($i) ."'>$i</a></li>";
 				}
 			}
 
 			elseif($paged >= ($max_page - ceil(($range/2)))){
 				for($i = $max_page - $range; $i <= $max_page; $i++){
 					if ($i == $paged){ $dis = "disabled"; } else { $dis = "";}
-						echo "<li class='spagenum ".$dis."'><a title=".'"第'.$i.'頁"'. " href='" . get_pagenum_link($i) ."'>$i</a></li>";
+						echo "<li class='navi-num ".$dis."'><a title=".'"第'.$i.'頁"'. " href='" . get_pagenum_link($i) ."'>$i</a></li>";
 					}
 				}
 
 			elseif($paged >= $range && $paged < ($max_page - ceil(($range/2)))){
 				if ($i == $paged){ $dis = "disabled"; } else { $dis = "";}
 				for($i = ($paged - ceil($range/2)); $i <= ($paged + ceil(($range/2))); $i++){
-					echo "<li class='spagenum ".$dis."'><a title=".'"第'.$i.'頁"'. " href='" . get_pagenum_link($i) ."'>$i</a></li>";
+					echo "<li class='navi-num ".$dis."'><a title=".'"第'.$i.'頁"'. " href='" . get_pagenum_link($i) ."'>$i</a></li>";
 				}
 			}
 		} else {
 			for($i = 1; $i <= $max_page; $i++){
 				if ($i == $paged){ $dis = "disabled"; } else { $dis = "";}
-				echo "<li class='spagenum ".$dis."'><a title=".'"第'.$i.'頁"'. " href='" . get_pagenum_link($i) ."'>$i</a></li>";
+				echo "<li class='navi-num ".$dis."'><a title=".'"第'.$i.'頁"'. " href='" . get_pagenum_link($i) ."'>$i</a></li>";
 			}
 		}
+		echo "<li class='navi-num'>";
 		next_posts_link(' » ');
+		echo "</li>";
 		if($paged != $max_page){
-			echo "<a href='" . get_pagenum_link($max_page) . "' class='extend' title='最後一頁'>最後一頁</a></ul>";
+			echo "<li class='navi-num'><a href='" . get_pagenum_link($max_page) . "' class='extend' title='最後一頁'>最後一頁</a></li></ul>";
 		}
 	}
 }
 
-add_action('init', 'wp_jquery_cdn_init');
-function wp_jquery_cdn_init() {
-	global $theme_uri,$theme_module;
-    if( !is_admin() ) {
-        wp_deregister_script('jquery');
-        wp_register_script('jquery', 'http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.1/jquery.min.js', false, '1.8.1');
-		wp_register_script('waypoints', 'http://cdnjs.cloudflare.com/ajax/libs/waypoints/1.1.6/waypoints.min.js', false,'1.1.6');
-		wp_register_script('bootstrap_javascript', 'http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.1/bootstrap.min.js', false,'2.1.1');
-		wp_register_script('base', $theme_module.'javascript/base.js', false);
-	}
-}
-add_action('init', 'need_use_jquery');
-function need_use_jquery() {
-    if( !is_admin() ) {
-        wp_enqueue_script('jquery');
-		wp_enqueue_script('waypoints');
-		wp_enqueue_script('bootstrap_javascript');
-		wp_enqueue_script('base');
-    }
-}
-function get_thumb_images($css_class){
-	if( is_option('thumb_open') ){
-	global $post;
-	if($img1 = get_feature_image()):
-?>
 
-<div class="thumb">
-	<a href="<?php the_permalink();?>">
-		<img src="<?php bloginfo('template_url'); ?>/module/tb/timthumb.php?src=<?php echo $img1; ?>&h=200&w=200&zc=1" title="<?php the_title();?>" />
-	</a>
-</div>
-<?php
-	endif;
-	}
+function get_timthumb( $size = 'small' ){
+	//if( is_option('thumb_open') ): $img1 = get_feature_image()
+		global $post;
+		if(0):
+			if( $size == 'small'):
+				return bloginfo('template_url') . "/framework/thumb/timthumb.php?src=" . $img1 . "&h=400&w=225&zc=1";	
+			endif;
+			if( $size == 'banner'):
+				return bloginfo('template_url') . "/framework/thumb/timthumb.php?src=" . $img1 . "&h=720&w=405&zc=1";	
+			endif;
+		else:
+			return "http://placehold.it/720x405";
+		endif;
+	//endif;
 }
 
 function get_feature_image(){

@@ -17,8 +17,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content="WordPress" />
 		<?php wp_head(); ?>
+		<script src="<?php bloginfo('template_directory') ?>/framework/front/base.js" type="text/javascript" /></script>
 		<link href="<?php bloginfo('template_directory') ?>/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 		<link href="<?php bloginfo('template_directory') ?>/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
 		<!--[if IE]>
 		    <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
 		<![endif]-->
@@ -55,4 +57,16 @@
 				s.parentNode.insertBefore(po, s);
 			})();
 		</script>
-		<div class="container">
+
+		<div class="wrapper">
+			<div class="inner">
+				<header role="header" class="header">
+					<hgroup class="header-gp">
+						<h1 class="header-logo"><a href="<?php bloginfo( 'url' ) ?>" title="<?php bloginfo( 'description' ) ?>"><?php bloginfo( 'name' ) ?></a></h1>
+						<h2 class="header-description"><?php bloginfo( 'description' ) ?></h2>
+					</hgroup>
+					<div class="float-primarymenu">
+						<?php wp_nav_menu( array( 'items_wrap' => '<ul class="nav">%3$s</ul>', 'theme_location' => 'primary-menu' ) ); ?>
+					</div>
+				</header>
+				<div class="container">

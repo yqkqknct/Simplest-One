@@ -6,9 +6,12 @@
 @import susy
 
 $total-columns: 12
-$column-width: 5em
+$column-width: 7em
 $gutter-width: 1em
 $grid-padding: $gutter-width
+$background: #F9F9F9
+$alink: #F39C12
+
 
 
 
@@ -16,6 +19,7 @@ body
     font: 15px/1.7em "Open Sans", Arial, sans-serif
     letter-spacing: 0.05em
     color: #474747
+    background: $background
 
 .clearfix:after
     visibility: hidden
@@ -33,6 +37,13 @@ body
 
 .clearfix
     display: block
+
+img
+    margin: 0
+    padding: 0
+    border: none
+    max-width: 100%
+    height: auto
 
 blockquote:before
     content: "‘‘"
@@ -58,11 +69,106 @@ pre
     font-size: 14px
     color: #777
 
+ul > li
+    list-style: square
+
+strong, b
+    font-weight: bold
+
+menu, ol, ul 
+    padding: 0 0 0 40px
+
+dl, menu, ol, ul 
+    margin: 1em 0
+
+a
+    color: #00a6e8
+    text-decoration: none
+    &:hover, &:focus
+        color: #0085ba
+
+::-moz-selection
+    background: #fe57a1
+    color: white
+    text-shadow: none
+
+
+::selection 
+    background: #fe57a1
+    color: white
+    text-shadow: none
+
+*:link, *:visited, *:hover, *:active, *:focus, *
+    -webkit-transition: all 0.1s linear
+    -moz-transition: all 0.1s linear
+    -ms-transition: all 0.1s linear
+    -o-transition: all 0.1s linear
+    transition: all 0.1s linear
+
+input[type="submit"]
+    outline: 0
+    font-size: 16px
+    background-color: #0078E7
+    color: #FFF
+    margin: 0
+    -webkit-border-radius: 5px
+    -moz-border-radius: 5px
+    border-radius: 5px
+    padding: 11px 15px 12px 15px
+    text-align: center
+    cursor: pointer
+    border: none
+    zoom: 1
+    &:hover
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#00000000', GradientType=0)
+        background-image: -webkit-gradient(linear,0 0,0 100%,from(rgba(0, 0, 0, 0)),color-stop(40%,rgba(0, 0, 0, .05)),to(rgba(0, 0, 0, .05)))
+        background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, .05) 40%,rgba(0, 0, 0, .15))
+        background-image: -moz-linear-gradient(top,rgba(0, 0, 0, .05) 0,rgba(0, 0, 0, .05))
+        background-image: -ms-linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, .05) 40%,rgba(0, 0, 0, .15))
+        background-image: -o-linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, .05) 40%,rgba(0, 0, 0, .05))
+        background-image: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, .05) 40%,rgba(0, 0, 0, .05))
+
+input[type="text"] 
+    outline: 0
+    border: 2px solid #DDD
+    padding: 8px 0 9px 10px
+    color: #888
+    width: 70%
+    border-radius: 5px
+    font-family: 'Open Sans',sans-serif
+    -webkit-transition: all 0.08s ease-in
+    -moz-transition: all 0.08s ease-in
+    -ms-transition: all 0.08s ease-in
+    -o-transition: all 0.08s ease-in
+    transition: all 0.08s ease-in
+    &:active, &:focus
+        border-color: #AAA
+
+textarea 
+    outline: 0
+    border: 2px solid #dddddd
+    padding: 8px 0 9px 10px
+    color: #888
+    width: 100%
+    height: 200px
+    border-radius: 5px
+    font-family: 'Open Sans',sans-serif
+    -webkit-transition: all 0.08s ease-in
+    -moz-transition: all 0.08s ease-in
+    -ms-transition: all 0.08s ease-in
+    -o-transition: all 0.08s ease-in
+    transition: all 0.08s ease-in
+    &:active, &:focus 
+        border-color: #AAA
+
+
 .container
     +container
+    @media screen and (max-width: 1600px) 
+        width: 1200px
 
 .column-left
-    +span-columns(9,12)
+    +span-columns(10,13)
 
 h1, h2, h3, h4, h5, h6
     font-family: "Open Sans"
@@ -79,8 +185,8 @@ h1
     font-family: "Open Sans", "微軟正黑體", sans-serif
     font-weight: 300
 h2
-    font-size: 34px
-    font-family: "Open Sans", "微軟正黑體", sans-serif
+    font-size: 32px
+    font-family: "Open Sans", sans-serif
     font-weight: 300
 h3
     font-size: 26px
@@ -89,6 +195,88 @@ h3
     font-weight: 300
     color: #777
     line-height: 2em
+
+.wrapper
+    +container
+    @media screen and (max-width: 1600px) 
+        width: 1200px    
+    background: #FFF
+    padding: 0
+    box-shadow: 0 0 15px #CCC    
+
+.inner
+    margin: 0 10em
+
+// header
+.header
+    +container
+    @media screen and (max-width: 1600px) 
+        width: 1200px
+    position: relative
+
+.header-description
+    font-size: 15px
+    line-height: 1.48
+    padding: 0
+    margin: 0
+    color: #888
+
+.header-logo
+    
+    color: #666
+    a
+        color: #666
+        text-decoration: none
+
+.header-gp
+    +span-columns(5,12)
+    margin: 40px 0
+
+// gallery
+
+.gallery
+    float: left
+    margin: 0px -165px 0px -165px
+    img
+        float: left
+
+.gallery-half
+    width: 50%
+    float: left
+    &:hover
+        opacity: 0.8
+
+.hover
+    background: #FEFFE4
+
+// nav
+
+.nav
+    +span-columns(7 omega,12)
+    margin: 0
+    padding: 0
+    position: absolute
+    bottom: 32%
+    li
+        float: right
+        position: relative
+        list-style: none
+        margin-left: 10px
+        > a
+            text-shadow: none
+            -webkit-border-radius: 0px
+            -moz-border-radius: 0px
+            border-radius: 0px
+            font-size: 16px
+            color: #666
+            font-family: "Open sans", "微軟正黑體", "Microsoft yahei", sans-serif
+            padding: 15px 8px
+            &:hover
+                color: $alink
+                text-decoration: none
+    a
+        display: block            
+
 
 // article
 
@@ -99,41 +287,207 @@ article p
     font-family: "Droid Serif", Serif
 
 .cont-title
-    margin: 10px 0
+    letter-spacing: -2.5px
+    color: #555555
     a
         text-decoration: none
         line-height: 42px
         color: #555555
         font-weight: 300
-        letter-spacing: -2.5px
         &:hover
-            color: #E67E22
+            color: $alink
 
 .article
+    +span-columns(12,12)
     border-bottom: 1px solid #EEE
-    margin: 0 0 20px 0
     padding: 20px 0
     clear: both
 
+// double
+
+.cont-title-small
+    +span-columns(10 omega,14)
+    font-size: 26px
+    font-size: 1.625rem
+    letter-spacing: -2.5px
+    color: #555555
+    a
+        text-decoration: none
+        line-height: 42px
+        color: #555555
+        font-weight: 300
+        &:hover
+            color: $alink
+//
+.article-inside
+    float: left
+    border-top: 1px dotted #dddddd
+    padding-top: 30px
 .article .article-meta:after
     display: table
     clear: both
+.cont-title
+    +prefix(2)
+    +span-columns(10 omega,14)
+.article-meta
+    +span-columns(4,14)
+    padding-top: 10px
+.cont
+    +span-columns(10 omega,14)
+.article-author
+    +span-columns(10 omega,14)
+    border-top: 1px solid #E2D5C1
+    position: relative
+    padding: 30px 0
+    background: #FDFAF5
+    margin-top: 25px
+    border-bottom: 1px solid #E2D5C1
+.article-thumb
+    margin-top: 17px
+    +span-columns(3.7,14)
+    +post(0.3)
+.author-avatar
+    +span-columns(2,12)
+    img
+        width: 100px
+        margin: 0 auto
+        display: block
+.author-text,
+    +span-columns(10 omega,12)
+.author-description
+    padding-top: 10px
+    +span-columns(12,12)
+.author-name 
+    padding: 0
+    margin: 0
+    line-height: 1.48
+    display: inline-block
+    +span-columns(6,12)
+.author-social
+    +span-columns(6 omega,12)
+    padding: 6.5px 0
+.author-top
+    width: 100%
+    margin: 0 auto
+    position: absolute
+    text-align: center
+    top: -13px
+    span
+        background: #FFF
+        padding: 7px 10px
+        border: 1px solid #E2D5C1
+        border-radius: 3px
+        color: #AA9068
+        font-size: 13px
+        letter-spacing: 0.1em
+.article-meta
+    .meta-category, .meta-time, .meta-comment
+        +span-columns(1 omega,1)
+        float: right
+        text-align: right
+        padding-right: 20px
+        font-size: 13px
+        color: #888
+        a
+            text-decoration: none
+            color: #888
+            &:hover
+                color: #00a6e8
+.article-inside
+    .meta-category
+        opacity: 1
+    .meta-category, .meta-time, .meta-comment
+        +span-columns(1,1)
+        float: left
+        text-align: left
+        font-size: 13px
+        color: #888
+        border-bottom: 1px solid #DDD
+        padding: 7px 0
+        a
+            text-decoration: none
+            color: #888
+            &:hover
+                color: #00a6e8
+.article-meta-small
+    +span-columns(10 omega,14)
+    .meta-category, .meta-time, .meta-comment
+        float: left
+        text-align: left
+        padding-right: 10px
+        font-size: 13px
+        color: #888
+        a
+            text-decoration: none
+            color: #888
+            &:hover
+                color: #00a6e8         
+.meta-category
+    opacity: 0
 
-.meta-category, .meta-time, .meta-comment
-    float: left
-    margin-right: 10px
+*, *:before, *:after
+    -webkit-transition: all 0.5s linear
+    -moz-transition: all 0.5s linear
+    -ms-transition: all 0.5s linear
+    -o-transition: all 0.5s linear
+    transition: all 0.5s linear    
 
+.article-meta i
+    margin-right: 2px
+    opacity: 0.5
+
+.article:hover .meta-category
+    opacity: 1
 
 .more-link
-    text-decoration: none
-    font-size: 18px
-    color: #888
-    float: right
+    display: none
+
+// sidebar
+
+.sidebar
+    +span-columns(4,14)
+    section
+        margin-right: 20px
+        float: left
+        menu, ol, ul 
+            padding: 0 0 0 25px
+
+// pagenavi
+
+.pagenavi 
+    display: block
+    float: left
+    margin: 0
+    padding: 0
+    li
+        list-style: none
+        float: left
+
+.navi-info 
+    padding: 10px
+    background: #666
+    color: #FFF
+
+.navi-num
+    padding: 10px 15px
+    background: #666
+    color: #FFF
+    a
+        color: #FFF
+        text-decoration: none
+    &:hover
+        background: #888
+.disabled
+    background: #AAA
+    &:hover
+        background: #AAA
+
+
 
 // footer
 
 .footer
-    +container
+    +span-columns(1,1)
     padding: 30px 0
     .footer-copyright
         float: left
@@ -141,6 +495,10 @@ article p
         float: right
 
 // comment
+
+#comments
+    +span-columns(10 omega,14)
+    padding-top: 20px
 
 #comments li
     list-style: none
@@ -180,7 +538,7 @@ article p
     margin-left: 20px
 #comments p
     line-height: 1.5
-    margin: 20px 0
+    margin: 10px 0
 #comments input[type="text"]
     width: 30%
 #comments .comment-meta
@@ -189,14 +547,11 @@ article p
     color: #999
 ol.comment_list
     margin: 10px 0 10px 0
+    padding: 0
 .paviinfo
     margin: 10px 0
     border-left: 10px solid #CCC
     padding-left: 10px
-.pagenavi
-    display: block
-    float: left
-    margin: 0px 0 20px 0
 .page-numbers
     background: #999
     border-radius: 20px
