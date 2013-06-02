@@ -17,34 +17,35 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content="WordPress" />
 		<?php wp_head(); ?>
+		<script src="<?php bloginfo('template_directory') ?>/framework/front/macho.js" type="text/javascript" /></script>
 		<script src="<?php bloginfo('template_directory') ?>/framework/front/base.js" type="text/javascript" /></script>
-		<link href="<?php bloginfo('template_directory') ?>/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-		<link href="<?php bloginfo('template_directory') ?>/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+		<link rel="Shortcut Icon" type="image/x-icon" href="<?php the_option('favicon');?>" />
+		<link href="<?php bloginfo('template_directory') ?>/stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
-		<!--[if IE]>
-		    <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
-		<![endif]-->
-		<link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/style.css" type="text/css" media="screen" />
-		<link rel="Shortcut Icon" type="image/x-icon" href="<?php //the_option('favicon');?>" />
 		<!--[if lte IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<style type="text/css"><?php //the_option('custom_css');?></style>
-		<?php //the_option('headcode');?>
+		<style type="text/css">
+		<?php if ( f_option('background_color') ){ $color = f_option('background_color'); } ?>
+		<?php if ( f_option('background_image') ){ $image = f_option('background_image'); } ?>
+			body { background: <?php if ( $color ){ echo $color; } ?> <?php if ( $image ){ echo "url('" . $image . "');"; } ?>}
+		<?php the_option('custom_css');?>
+		</style>
+		<?php the_option('custom_head'); ?>
 	</head>
 	<body>
-		<?php //if( is_option('fb_appid') ): ?>
+		<?php if( is_option('fb_appid') ): ?>
 		<div id="fb-root"></div>
 		<script>
 		(function(d, s, id) {
 			var js, fjs = d.getElementsByTagName(s)[0];
 			if (d.getElementById(id)) return;
 			js = d.createElement(s); js.id = id;
-			js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=<?php //the_option('fb_appid');?>";
+			js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=<?php the_option('fb_appid');?>";
 				fjs.parentNode.insertBefore(js, fjs);
 				}(document, 'script', 'facebook-jssdk'));
 		</script>
-		<?php //endif;?>
+		<?php endif; ?>
 		<script type="text/javascript">
 			window.___gcfg = {
 				lang : 'zh-TW'
@@ -62,8 +63,12 @@
 			<div class="inner">
 				<header role="header" class="header">
 					<hgroup class="header-gp">
-						<h1 class="header-logo"><a href="<?php bloginfo( 'url' ) ?>" title="<?php bloginfo( 'description' ) ?>"><?php bloginfo( 'name' ) ?></a></h1>
-						<h2 class="header-description"><?php bloginfo( 'description' ) ?></h2>
+						<?php if ( is_option( 'logo') ): ?>
+							<h1 class="header-logo"><a href="<?php bloginfo( 'url' ) ?>" title="<?php bloginfo( 'description' ) ?>"><img src="<?php the_option('logo') ?>" alt="<?php bloginfo( 'name' ) ?>"></a></h1>
+						<?php else: ?>
+							<h1 class="header-logo"><a href="<?php bloginfo( 'url' ) ?>" title="<?php bloginfo( 'description' ) ?>"><?php bloginfo( 'name' ) ?></a></h1>
+							<h2 class="header-description"><?php bloginfo( 'description' ) ?></h2>
+						<?php endif; ?>
 					</hgroup>
 					<div class="float-primarymenu">
 						<?php wp_nav_menu( array( 'items_wrap' => '<ul class="nav">%3$s</ul>', 'theme_location' => 'primary-menu' ) ); ?>

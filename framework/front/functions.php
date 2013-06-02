@@ -16,7 +16,6 @@ function social_button(){
 function add_user_porfile( $contactmethods ) {
 	$contactmethods['google'] = 'Google+ 個人網址';
 	$contactmethods['facebook'] = 'Facebook 個人網址';
-	$contactmethods['twitter'] = 'Twitter 個人網址';
 	$contactmethods['description_url'] = '個人介紹頁';
 	return $contactmethods;
 }
@@ -24,7 +23,7 @@ add_filter('user_contactmethods','add_user_porfile',10,1);
 
 function postauthor_init(){
 	global $post;
-	//if (is_option('author')){
+	if (is_option('author_on')){
 ?>
 <section class="article-author">
 	<div class="author-top"><span>關於作者</span></div>
@@ -42,14 +41,14 @@ function postauthor_init(){
 				<a href="<?php the_author_meta('description_url');?>" title="<?php the_author_meta('display_name');?> 個人介紹">個人介紹</a> | <?php endif;?>
 				<a href="<?php echo get_author_posts_url(get_the_author_meta('ID'));?>" title="更多<?php the_author_meta('display_name');?>的文章">更多文章 &gt; </a></span>
 		</div>		
-		<span class="author-description">
+		<p class="author-description">
 				<?php the_author_meta('description');?>
-		</span>
+		</p>
 
 	</div>
 </section>
 <?php
-	//}
+	}
 }
 
 add_action('init', 'need_use_jquery');
@@ -68,7 +67,7 @@ function insert_fb_in_head() {
 		echo "\n";
         echo '<meta property="fb:app_id" content="'. f_option('fb_appid') .'" />';
 		echo "\n";
-        echo '<meta property="og:type" content="websi"/>';//內容格式
+        echo '<meta property="og:type" content="website"/>';
 		echo "\n";
         echo '<meta property="og:title" content="' . get_bloginfo('name') . '"/>';
 		echo "\n";
@@ -85,7 +84,7 @@ function insert_fb_in_head() {
 	$description = mb_substr( $post_excerpt, 0, 160, 'UTF-8' );
 	$description .= ( mb_strlen( $post_excerpt, 'UTF-8' ) > 160 ) ? '…' : '';
         echo "\n";
-		echo '<meta property="fb:admins" content="'. f_option('fb_admins') .'" />';//管理員ID
+		echo '<meta property="fb:admins" content="'. f_option('fb_adminid') .'" />';//管理員ID
 		echo "\n";
         echo '<meta property="fb:app_id" content="'. f_option('fb_appid') .'" />';//APP_ID
 		echo "\n";
@@ -97,7 +96,7 @@ function insert_fb_in_head() {
 		echo "\n";
         echo '<meta property="og:url" content="' . get_permalink() . '"/>';//連結
 		echo "\n";
-        echo '<meta property="og:site_name" content="'.get_bloginfo('name'). '"/>';//網站名稱
+        echo '<meta property="og:site_name" content="' . get_bloginfo('name'). '"/>';//網站名稱
 		echo "\n";
 		echo '<meta property="og:image" content="'.$img.'" />' ;//圖片
 		echo "\n";
@@ -113,96 +112,45 @@ add_action( 'wp_head', 'insert_fb_in_head', 10 );
 
 add_filter('the_content', 'adsense_adder_at_more_tag');
 function adsense_adder_at_more_tag($text) {
-if( is_single() && is_option('gad1') && is_option('gad2')){
-$ads_text = '
-<div class="gads">
-	<div class="gads_row">
-		<div class="gads_cell">'.f_option('gad1').'</div>
-		<div class="gads_cell">'.f_option('gad2').'</div>
-	</div>
-</div>
-';
-}else if( is_single() && is_option('gad1') && is_option('gad2')==''){
-$ads_text = '
-<div class="gads">
-	<div class="gads_row" style="display: block;">
-		<div class="gads_cell_center">'.f_option('gad1').'</div>
-	</div>
-</div>
-';
-}else if( is_single() && is_option('gad1')=='' && is_option('gad2')){
-$ads_text = '
-<div class="gads">
-	<div class="gads_row" style="display: block;">
-		<div class="gads_cell_center">'.f_option('gad2').'</div>
-	</div>
-</div>
-';
+	if( is_single() && is_option('gad_top')) {
+		$ads_text = '
+		<div class="gad">
+			<div class="gad-code">'.f_option('gad_top').'</div>
+		</div>
+		';
+	}
+	$pos1 = strpos($text, '<span id="more-');
+	$pos2 = strpos($text, '</span>', $pos1);
+	$text1 = substr($text, 0, $pos2);
+	$text2 = substr($text, $pos2);
+	$text = $text1 . $ads_text . $text2;
+	return $text;
 }
-$pos1 = strpos($text, '<span id="more-');
-$pos2 = strpos($text, '</span>', $pos1);
-$text1 = substr($text, 0, $pos2);
-$text2 = substr($text, $pos2);
-$text = $text1 . $ads_text . $text2;
-return $text;
-}
-
-
-
 
 register_nav_menus(
 		array(
-			'primary-menu' => __( '主選單' ),
-			'sub-menu' => __( '分類選單' )
+			'primary-menu' => __( '主選單' )
 		)
 );
-
-
 
 if ( function_exists('register_sidebar') ){
 	register_sidebar(array(
 		'name' => '邊欄',
 		'id' => 'sidebar',
 		'description' => '顯示於其他面邊欄處.',
-		'before_widget' => '<section id="%1$s" class="right_sidebar">',
+		'before_widget' => '<section id="%1$s" class="right-sidebar">',
 		'after_widget' => '</section>',
-		'before_title' => '<h3 class="sidebar_title">',
-		'after_title' => '</h3>'
-	));
-	register_sidebar(array(
-		'name' => '網頁底部 ( 1 )',
-		'id' => 'footer_one',
-		'description' => '顯示於其他面邊欄處.',
-		'before_widget' => '<section id="%1$s" class="bottom_sidebar">',
-		'after_widget' => '</section>',
-		'before_title' => '<h3 class="sidebar_title">',
-		'after_title' => '</h3>'
-	));
-	register_sidebar(array(
-		'name' => '網頁底部 ( 2 )',
-		'id' => 'footer_two',
-		'description' => '顯示於其他面邊欄處.',
-		'before_widget' => '<section id="%1$s" class="bottom_sidebar">',
-		'after_widget' => '</section>',
-		'before_title' => '<h3 class="sidebar_title">',
-		'after_title' => '</h3>'
-	));
-	register_sidebar(array(
-		'name' => '網頁底部 ( 3 )',
-		'id' => 'footer_three',
-		'description' => '顯示於其他面邊欄處.',
-		'before_widget' => '<section id="%1$s" class="bottom_sidebar">',
-		'after_widget' => '</section>',
-		'before_title' => '<h3 class="sidebar_title">',
+		'before_title' => '<h3 class="sidebar-title">',
 		'after_title' => '</h3>'
 	));
 }
 
-
+$options = get_option(FRAMEWORK_NAME);
 
 function the_option($name){
 	global $shortname;
-	$array = get_option($shortname.$name);
+	$options = get_option(FRAMEWORK_NAME);
+	$array = $options[$name];
 	if($array){
 		echo stripslashes($array);
 		return 0;
@@ -213,7 +161,8 @@ function the_option($name){
 
 function f_option($name){
 	global $shortname;
-	$array = get_option($shortname.$name);
+	$options = get_option(FRAMEWORK_NAME);
+	$array = $options[$name];
 	if($array){
 		return stripslashes($array);
 	}else{
@@ -223,14 +172,14 @@ function f_option($name){
 
 function is_option($name){
 	global $shortname;
-	$array = get_option($shortname.$name);
+	$options = get_option(FRAMEWORK_NAME);
+	$array = $options[$name];
 	if($array){
 		return ture;
 	}else{
 		return false;
 	}
 }
-
 
 
 if ( function_exists( 'add_theme_support'  ) ) {
@@ -288,21 +237,64 @@ function pagenavi($range = 5){
 	}
 }
 
+function breadcrumb_init($nickname = ''){
+	global $post,$theme_dir;
+?>
+
+<ul class="breadcrumb">
+	
+<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+	<i class="icon-home"></i>	
+	<a href="<?php bloginfo('url');?>" itemprop="url" title="<?php bloginfo('name');?>">
+		<span itemprop="title"><?php bloginfo('name');?></span></a> 
+</li>
+
+<?php
+if( is_single() ):
+foreach ((get_the_category()) as $category) {
+	echo '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">';
+	echo '<span class="divider">›</span> <a href="' . get_category_link($category -> term_id) . '" itemprop="url" title=' . $category -> cat_name . '> <span itemprop="title">' . $category -> cat_name . '</span> </a>';
+	echo '</li>';
+}
+else:
+?>
+<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="active">
+		<span class="divider">›</span> <span itemprop="title">
+			<?php
+	if (is_category()) {
+		echo single_cat_title();
+	} elseif (is_author()) {
+		echo $nickname;
+	} elseif (is_tag()) {
+		echo single_tag_title('', true);
+	} elseif (is_day()) {
+		the_time(get_option('date_format'));
+	} elseif (is_month()) {
+		the_time('F, Y');
+	} elseif (is_year()) {
+		the_time('Y');
+	}
+?></span>
+</li>
+<?php
+endif;
+?>
+</ul>
+<?php
+
+}
 
 function get_timthumb( $size = 'small' ){
-	//if( is_option('thumb_open') ): $img1 = get_feature_image()
-		global $post;
-		if(0):
-			if( $size == 'small'):
-				return bloginfo('template_url') . "/framework/thumb/timthumb.php?src=" . $img1 . "&h=400&w=225&zc=1";	
-			endif;
-			if( $size == 'banner'):
-				return bloginfo('template_url') . "/framework/thumb/timthumb.php?src=" . $img1 . "&h=720&w=405&zc=1";	
-			endif;
-		else:
-			return "http://placehold.it/720x405";
+	global $post;
+	$img1 = get_feature_image();
+	if ( $img1 ):
+		if( $size == 'small'):
+			return bloginfo('template_url') . "/framework/thumb/timthumb.php?src=" . $img1 . "&h=400&w=225&zc=1";	
 		endif;
-	//endif;
+		if( $size == 'banner'):
+			return bloginfo('template_url') . "/framework/thumb/timthumb.php?src=" . $img1 . "&h=720&w=405&zc=1";	
+		endif;
+	endif;
 }
 
 function get_feature_image(){
@@ -323,7 +315,7 @@ function mytheme_comment($comment, $args, $depth){
 	$GLOBALS['comment'] = $comment;
 
 ?>
-<li id="comment-id-<?php comment_ID() ?>" class="comment_list_box">
+<li id="comment-id-<?php comment_ID() ?>" class="comment-list-box">
 	<div id="comment-<?php comment_ID();?>">
 		<div class="comment-author">
 			<?php echo get_avatar( $comment, 40 ); ?>
@@ -336,7 +328,7 @@ function mytheme_comment($comment, $args, $depth){
 		</div>
 
 		<?php if ($comment->comment_approved == '0') : ?>
-			<em class="comment_approved"><?php _e('Your comment is awaiting moderation.') ?></em>
+			<em class="comment-approved"><?php _e('Your comment is awaiting moderation.') ?></em>
 		<?php endif;?>
 
 		<?php comment_text() ?>
@@ -373,22 +365,27 @@ function fixed_media(){
 <?php
 }
 
-function s_random_lists($num_limit = 5){
+function random_lists($num_limit = 7){
     query_posts('showposts='.$num_limit.'&orderby=rand');
-
-
 	if ( have_posts() ) : while ( have_posts() ) : the_post();
 ?>
-				<article class="archive_list">
-					<div class="archive_thumb">
-					<?php get_thumb_images('thumb_img'); ?>
+				<article class="article">
+					<div class="article-thumb">
+						<img src="<?php echo get_timthumb('small'); ?>" title="<?php the_title(); ?>">
 					</div>
-					<div class="archive_desc">
-						<h1 class="title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
-						<span class="list">
-							<i class="icon-comment"></i>  <span title="迴響" class="list_comment"><?php comments_number('0', '1', '%', '', '');?> 迴響</span> |
-							<i class="icon-time"></i>  <span title="<?php the_time('a g:i');?>" class="list_time"><?php the_time('M j ,Y');?></span>
-						</span>
+					<div class="article-cont">
+						<h1 class="cont-title-small">
+							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a>
+						</h1>
+						<div class="cont">
+							<?php the_content(); ?>
+							<div class="clearfix"></div>
+						</div>			
+						<div class="article-meta-small">
+								<div class="meta-time"><i class="icon-time icon-white"></i>  <span title="<?php the_time('G:i'); ?>"><?php the_time('m / j , Y'); ?></span></div>
+								<div class="meta-comment"><i class="icon-comment icon-white"></i>  <a href="<?php the_permalink(); ?>#comments" title="查看迴響"><?php comments_number('0','1','%','',''); ?> 迴響</a></div>
+								<div class="meta-category"><i class="icon-tag icon-white"></i>  <?php the_category(' , '); ?></div>
+						</div>
 					</div>
 				</article>
 <?php

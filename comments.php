@@ -56,10 +56,10 @@
 
 <?php else : ?>
 
-<p><input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="22" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
+<p><input type="text" name="author" id="author" required="required" value="<?php echo esc_attr($comment_author); ?>" size="22" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
 <label for="author"><small>名稱<?php if ($req) echo "(必填)"; ?></small></label></p>
 
-<p><input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
+<p><input type="text" name="email" id="email" required="required" value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
 <label for="email"><small>信箱<?php if ($req) echo "(必填)"; ?></small></label></p>
 
 <p><input type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="22" tabindex="3" />
@@ -69,7 +69,7 @@
 
 <p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
 
-<p><input name="submit" class="m-btn black" type="submit" id="submit" tabindex="5" value="發表" />
+<p><input name="submit" class="m-btn black" required="required" type="submit" id="submit" tabindex="5" value="發表" />
 <?php comment_id_fields(); ?>
 </p>
 <?php do_action('comment_form', $post->ID); ?>

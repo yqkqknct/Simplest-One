@@ -3,7 +3,6 @@
 @import url("http://fonts.googleapis.com/css?family=Droid+Serif")
 @import base
 @import compass/reset
-@import susy
 
 $total-columns: 12
 $column-width: 7em
@@ -13,13 +12,16 @@ $background: #F9F9F9
 $alink: #F39C12
 
 
-
+*
+    -webkit-padding-start: 0px
 
 body
     font: 15px/1.7em "Open Sans", Arial, sans-serif
-    letter-spacing: 0.05em
-    color: #474747
+    color: #555555
     background: $background
+    padding: 2em
+    @media screen and (max-width: 1000px) 
+        padding: 0.8em
 
 .clearfix:after
     visibility: hidden
@@ -161,11 +163,11 @@ textarea
     &:active, &:focus 
         border-color: #AAA
 
+input[type="text"].search
+    width: 100%
 
 .container
     +container
-    @media screen and (max-width: 1600px) 
-        width: 1200px
 
 .column-left
     +span-columns(10,13)
@@ -198,20 +200,23 @@ h3
 
 .wrapper
     +container
-    @media screen and (max-width: 1600px) 
-        width: 1200px    
     background: #FFF
+    margin: 0 auto
     padding: 0
     box-shadow: 0 0 15px #CCC    
 
 .inner
     margin: 0 10em
+    @media screen and (min-width: 960px) and (max-width: 1440px)
+        margin: 0 50px
+    @media screen and (min-width: 600px) and (max-width: 959px) 
+        margin: 0 20px
+    @media screen and (max-width: 599px) 
+        margin: 0        
 
 // header
 .header
     +container
-    @media screen and (max-width: 1600px) 
-        width: 1200px
     position: relative
 
 .header-description
@@ -222,8 +227,9 @@ h3
     color: #888
 
 .header-logo
-    
     color: #666
+    @media screen and (max-width: 767px) 
+        text-align: center
     a
         color: #666
         text-decoration: none
@@ -231,18 +237,28 @@ h3
 .header-gp
     +span-columns(5,12)
     margin: 40px 0
+    @media screen and (max-width: 767px) 
+        width: 100%
+        margin: 25px 0 0
+
 
 // gallery
 
 .gallery
     float: left
     margin: 0px -165px 0px -165px
+    @media screen and (max-width: 1440px) 
+        margin: 0px -65px 0px -65px
+    @media screen and (max-width: 960px)
+        margin: 0px -35px 0px -35px
     img
         float: left
 
 .gallery-half
     width: 50%
     float: left
+    @media screen and (max-width: 767px) 
+        width: 100%
     &:hover
         opacity: 0.8
 
@@ -257,11 +273,27 @@ h3
     padding: 0
     position: absolute
     bottom: 32%
+    @media screen and (min-width: 768px)  and (max-width: 959px) 
+        bottom: 0
+        right: 0
+    @media screen and (max-width: 767px) 
+        bottom: 0
+        width: 100%
+        float: left
+        position: relative
+        margin-bottom: 10px
     li
         float: right
         position: relative
         list-style: none
         margin-left: 10px
+        @media screen and (max-width: 600px) 
+            width: 100%
+            margin: 0
+            text-align: center
+            border-bottom: 1px solid #DEDEDE
+            &:last-child
+                border: none
         > a
             text-shadow: none
             -webkit-border-radius: 0px
@@ -271,6 +303,8 @@ h3
             color: #666
             font-family: "Open sans", "微軟正黑體", "Microsoft yahei", sans-serif
             padding: 15px 8px
+            @media screen and (max-width: 600px) 
+                padding: 7px 0
             &:hover
                 color: $alink
                 text-decoration: none
@@ -284,7 +318,9 @@ article p
     line-height: 1.7
     margin: 10px 0
     color: #555
-    font-family: "Droid Serif", Serif
+    vertical-align: bottom
+    letter-spacing: 0.025em
+    font-family: "Droid Serif", sans-serif
 
 .cont-title
     letter-spacing: -2.5px
@@ -320,6 +356,7 @@ article p
             color: $alink
 //
 .article-inside
+    width: 100%
     float: left
     border-top: 1px dotted #dddddd
     padding-top: 30px
@@ -334,6 +371,15 @@ article p
     padding-top: 10px
 .cont
     +span-columns(10 omega,14)
+
+.article-author-archive
+    +span-columns(14,14)
+    border-top: 1px solid #E2D5C1
+    position: relative
+    padding: 30px 0
+    background: #FDFAF5
+    margin-top: 25px
+    border-bottom: 1px solid #E2D5C1   
 .article-author
     +span-columns(10 omega,14)
     border-top: 1px solid #E2D5C1
@@ -362,10 +408,12 @@ article p
     margin: 0
     line-height: 1.48
     display: inline-block
-    +span-columns(6,12)
+    +span-columns(4,12)
 .author-social
-    +span-columns(6 omega,12)
+    +span-columns(8 omega,12)
     padding: 6.5px 0
+    text-align: right
+    margin: 0
 .author-top
     width: 100%
     margin: 0 auto
@@ -432,7 +480,7 @@ article p
     -o-transition: all 0.5s linear
     transition: all 0.5s linear    
 
-.article-meta i
+.article-meta i, .article-meta-small i, .article-inside i
     margin-right: 2px
     opacity: 0.5
 
@@ -442,22 +490,80 @@ article p
 .more-link
     display: none
 
+//
+
+
 // sidebar
+
+.right-sidebar
+    @media screen and (max-width: 767px)
+        display: none
 
 .sidebar
     +span-columns(4,14)
+    position: relative
+    z-index: 10
+    background: #FFF
     section
         margin-right: 20px
         float: left
         menu, ol, ul 
             padding: 0 0 0 25px
 
+.sidebar-meta
+    margin-bottom: 20px
+    @media screen and (max-width: 767px)
+        margin: 0
+
+// ads
+
+.gad
+    float: left
+    width: 100%
+    margin: 20px 0
+    .gad-code
+        width: 300px
+        margin: 0 auto
+
+// breadcrumb
+
+
+
+.breadcrumb 
+    overflow: hidden
+    white-space: nowrap
+    margin: 0
+    background: transparent
+    font-size: 13px
+    color: #999
+    padding: 0
+
+.breadcrumb li 
+    margin: 0
+    display: inline-block
+    text-shadow: 0 1px 0 white
+
+.breadcrumb i 
+    vertical-align: middle
+    opacity: 0.5
+    margin: 0px 4px 0 0
+
+.breadcrumb a 
+    color: #999
+
+.breadcrumb .divider 
+    padding: 0 5px
+    color: #CCC
+.bread
+    +span-columns(10 omega,14)
+
 // pagenavi
 
 .pagenavi 
+    +span-columns(1,1)
     display: block
     float: left
-    margin: 0
+    margin: 20px 0
     padding: 0
     li
         list-style: none
@@ -468,13 +574,12 @@ article p
     background: #666
     color: #FFF
 
-.navi-num
+.pagenavi a
     padding: 10px 15px
     background: #666
     color: #FFF
-    a
-        color: #FFF
-        text-decoration: none
+    text-decoration: none
+    float: left
     &:hover
         background: #888
 .disabled
@@ -487,12 +592,14 @@ article p
 // footer
 
 .footer
-    +span-columns(1,1)
     padding: 30px 0
-    .footer-copyright
-        float: left
-    .footer-meta
-        float: right
+    +span-columns(1,1)
+.footer-copyright
+    float: left
+.footer-meta
+    float: right
+
+
 
 // comment
 
@@ -502,7 +609,7 @@ article p
 
 #comments li
     list-style: none
-#comments li.comment_list_box
+#comments li.comment-list-box
     padding: 10px 0 20px 55px
     margin: 0
     list-style: none
@@ -510,26 +617,27 @@ article p
     margin: 20px 0
     border-bottom: 1px solid #EEE
     position: relative
-#comments li.comment_list_box .comment-author img
+#comments li.comment-list-box .comment-author img
     position: absolute
     left: 0
     float: left
     margin: 0px 10px 5px 0px
     border-radius: 50%
     border: 1px solid #CCC
-#comments li.comment_list_box a.comment-reply-link
+#comments li.comment-list-box a.comment-reply-link
     border: 1px solid #DDD
     padding: 5px 13px
     color: #888
     border-radius: 20px
     font-size: 13px
     display: inline-block
-#comments li.comment_list_box a.comment-reply-link:hover
+#comments li.comment-list-box a.comment-reply-link:hover
     background: #EEE
     color: #888
     text-decoration: none
 #comments ul.children
     margin: 0
+    padding: 0
 #comments ul.children li
     border-bottom: none
     margin-bottom: 0
@@ -565,3 +673,69 @@ ol.comment_list
     color: white
     background: #666
     text-decoration: none
+
+
+//
+
+#share_button 
+    height: 145px
+    width: 70px
+    left: auto
+    padding: 12px 0 0 0
+    position: fixed
+    top: 450px
+    z-index: 5
+    margin-left: -150px
+    @media screen and (max-width: 767px)
+        display: none
+
+
+.like-fb , .like-g
+    margin-bottom: 10px
+
+@media screen and (max-width: 767px)
+    .cont-title, .article-meta, .cont, .article-thumb, .cont-title-small, .article-meta-small, .bread, #comments, .article-author, .author-social, .author-avatar
+        width: 100%
+        padding-left: 0
+    .cont-title
+        font-size: 26px
+        font-weight: bold
+        a
+            font-size: 26px
+            font-weight: bold
+    .article-meta
+        padding-top: 0
+    .article-meta .meta-category, .article-meta .meta-time, .article-meta .meta-comment
+        width: auto
+        float: left
+    .article-inside
+        .meta-category, .meta-time, .meta-comment
+            float: left
+            text-align: left
+            font-size: 13px
+            color: #888
+            border-bottom: none
+            padding: 2px 0
+            width: auto
+            margin-right: 15px
+    .sidebar
+        +span-columns(1,1)
+    .author-text
+        margin: 0 15px
+        width: auto
+        text-align: center
+    .author-description, 
+        text-align: left
+    .author-social, .footer-copyright, .footer-meta
+        text-align: center
+        float: none
+    .author-name 
+        float: none
+        margin-left: 20px
+    .author-avatar img 
+        float: none
+        display: inline
+        vertical-align: middle
+
+        
+

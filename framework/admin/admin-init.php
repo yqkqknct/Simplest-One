@@ -1,5 +1,28 @@
 <?php
 
+/*
+SELECT : 
+	array(	"title" => "欄數",
+		"id" => "layout_count",
+		"desc" => "選擇欄數",
+		"options" => array( "1", "2", "3", "4"),
+		"type" => "select"
+	),
+CHECKBOX :
+	array(	"title" => "首頁顯示分類",
+		"id" => "cat",
+		"desc" => "選擇欄數",
+		"options" => array( array( "id" => "news" , "title" => "First"), array( "id" => "water" , "title" => "Second")),
+		"type" => "checkbox"
+	),	
+RADIO :
+	array(	"title" => "開啟文章縮圖",
+		"id" => "post_on",
+		"desc" => "選擇欄數",
+		"type" => "radio"
+	),
+*/
+
 function framework_options_init( $type = 'list'){
 
 	if ( $type == 'list') {
@@ -30,41 +53,76 @@ function framework_options_init( $type = 'list'){
 					"std" => "#DDDDDD",
 					"type" => "color"
 				),
-			array(	"title" => "Footer 背景顏色",
-					"id" => "background_color_footer",
-					"desc" => "選擇背景顏色",
-					"std" => "#000000",
-					"type" => "color"
-				)
 		);
-		$framework_options['layout'] = array(
-			array(	"title" => "欄數",
-					"id" => "layout_count",
-					"desc" => "選擇欄數",
-					"options" => array( "1", "2", "3", "4"),
-					"type" => "select"
+		$framework_options['social'] = array(
+			array(	"title" => "Facebook APP ID",
+					"id" => "fb_appid",
+					"desc" => "請填入 Facebook APP 的 ID。",
+					"std" => "",
+					"type" => "text"
 				),
+			array(	"title" => "Facebook Admin ID",
+					"id" => "fb_adminid",
+					"desc" => "請填入 Facebook Admin 的 ID。",
+					"std" => "",
+					"type" => "text"
+				),
+			array(	"title" => "Facebook 粉絲專頁網址",
+					"id" => "fb_page",
+					"desc" => "請填入 Facebook 粉絲專頁的網址",
+					"std" => "",
+					"type" => "text"
+				),
+			array(	"title" => "Google+ 專頁網址",
+					"id" => "g_page",
+					"desc" => "請填入 Google+ 專頁的網址",
+					"std" => "",
+					"type" => "text"
+				),										
+		);		
+		$framework_options['ads'] = array(
+			array(	"title" => "文章 More 處廣告",
+					"id" => "gad_top",
+					"desc" => "廣告寬度為 300px，建議為 300x225。請填入廣告代碼。",
+					"type" => "textarea"
+				),
+			array(	"title" => "文章末處廣告",
+					"id" => "gad_end",
+					"desc" => "廣告寬度為 300px，建議為 300x225。請填入廣告代碼。",
+					"type" => "textarea"
+				),			
+		);			
+		$framework_options['other'] = array(
 			array(	"title" => "開啟文章縮圖",
 					"id" => "post_on",
-					"desc" => "選擇欄數",
+					"desc" => "是否開啟文章縮圖？",
 					"type" => "radio"
 				),
-			array(	"title" => "首頁顯示分類",
-					"id" => "cat",
-					"desc" => "選擇欄數",
-					"options" => array( array( "id" => "news" , "title" => "First"), array( "id" => "water" , "title" => "Second")),
-					"type" => "checkbox"
-				),							
-		);			
+			array(	"title" => "開啟文章作者欄",
+					"id" => "author_on",
+					"desc" => "是否開啟文章作者欄？",
+					"type" => "radio"
+				),										
+		);
 		$framework_options['custom'] = array(
 			array(	"title" => "自定義 CSS",
 					"id" => "custom_css",
-					"desc" => "自定義",
+					"desc" => "自定義 CSS，將放在 &lt;/head&gt; 前。",
 					"type" => "textarea"
-				),					
-		);				
+				),
+			array(	"title" => "自定義 &lt;/head&gt; 程式碼",
+					"id" => "custom_head",
+					"desc" => "自定義程式碼，將放在 &lt;/head&gt; 前。",
+					"type" => "textarea"
+				),			
+			array(	"title" => "頁尾資訊",
+					"id" => "custom_footer",
+					"desc" => "自定義頁尾資訊",
+					"type" => "textarea"
+				),
+		);
 	} else if ( $type == 'nav') {
-		$framework_options = array( "General", "Color", "Layout", "Custom" );
+		$framework_options = array( "General", "Color", "Social", "Ads", "Other", "Custom" );
 	}
 	return $framework_options;
 }
@@ -87,7 +145,7 @@ function mw_enqueue_color_picker() {
 }
 
 function framework_addition(){
-	add_menu_page('kentframework', 'Kent', 'administrator', 'kentframework', 'framework_admin','', 50);
+	add_menu_page('Kent Control', 'Kent Control', 'administrator', 'kentcontrol', 'framework_admin','', 50);
 	add_action('admin_head', 'framework_save');
 	framework_header();
 }
@@ -143,15 +201,15 @@ add_action('wp_ajax_save', 'framework_save_ajax');
 
 function framework_save_ajax() {
 	
-	check_ajax_referer('framework_options', 'security');
+	check_ajax_referer(FRAMEWORK_NAME.'_options', 'security');
 
 	$data = $_POST;
 	unset($data['security'], $data['action']);
 	
-	if(!is_array(get_option('framework'))) {
+	if(!is_array(get_option(FRAMEWORK_NAME))) {
 		$options = array();
 	} else {
-		$options = get_option('framework');
+		$options = get_option(FRAMEWORK_NAME);
 	}
 
 	if(!empty($data)) {
@@ -163,7 +221,7 @@ function framework_save_ajax() {
 	}
 		
 	if(!empty($diff)) {	
-		if(update_option('framework', $data)) {
+		if(update_option(FRAMEWORK_NAME, $data)) {
 			die('1');
 		} else {
 			die('0');
@@ -176,15 +234,12 @@ function framework_save_ajax() {
 function framework_admin(){
 	$framework_options = framework_options_init('list');
 	$framework_nav = framework_options_init('nav');
-	$options = get_option('framework');
+	$options = get_option(FRAMEWORK_NAME);
 ?>
-<div class="warp">
-	<div class="top">
-		<span class="brand">Kent Framework</span>
-		<div class="version">V 1.0</div>
-	</div>
+<div class="warp kent">
 	<div class="container">
 		<div class="w-widget">
+			<div class="brand">Kent Control<span>V1.0</span></div>
 			<ul class="navigation">
 			<?php
 				foreach ($framework_nav as $key => $value) {
@@ -209,7 +264,7 @@ function framework_admin(){
 						 	case 'upload':
 				?>
 								<div class="row-data">
-									<div class="title"><span><?php echo $data['title']; ?></span></div>
+									<div class="title"><span><label for="<?php echo $data['id']; ?>"><?php echo $data['title']; ?></label></span></div>
 									<div class="std">
 										<input id="<?php echo $data['id']; ?>" class="upload_input" type="text" name="<?php echo $data['id']; ?>" value="<?php echo $options[$data['id']]; ?>" />
 										<div class="upload_button">
@@ -225,8 +280,8 @@ function framework_admin(){
 						 	case 'text':
 				?>
 								<div class="row-data">
-									<div class="title"><span><?php echo $data['title']; ?></span></div>
-									<div class="std"><input type="text" name="<?php echo $data['id']; ?>" value="<?php echo $options[$data['id']]; ?>"></div>
+									<div class="title"><span><label for="<?php echo $data['id']; ?>"><?php echo $data['title']; ?></label></span></div>
+									<div class="std"><input type="text" id="<?php echo $data['id']; ?>" name="<?php echo $data['id']; ?>" value="<?php echo $options[$data['id']]; ?>"></div>
 									<div class="desc"><span><?php echo $data['desc']; ?></span></div>
 								</div>
 				<?php
@@ -234,8 +289,8 @@ function framework_admin(){
 						 	case 'color':
 				?>
 								<div class="row-data">
-									<div class="title"><span><?php echo $data['title']; ?></span></div>
-									<div class="std"><input class="color-field" type="text" name="<?php echo $data['id']; ?>" value="<?php echo $options[$data['id']]; ?>" data-default-color="<?php echo $data['std']; ?>"></div>
+									<div class="title"><span><label for="<?php echo $data['id']; ?>"><?php echo $data['title']; ?></label></span></div>
+									<div class="std"><input class="color-field" type="text" id="<?php echo $data['id']; ?>" name="<?php echo $data['id']; ?>" value="<?php echo $options[$data['id']]; ?>" data-default-color="<?php echo $data['std']; ?>"></div>
 									<div class="desc"><span><?php echo $data['desc']; ?></span></div>
 								</div>
 				<?php
@@ -243,8 +298,8 @@ function framework_admin(){
 						 	case 'textarea':
 				?>
 								<div class="row-data">
-									<div class="title"><span><?php echo $data['title']; ?></span></div>
-									<div class="std"><textarea name="<?php echo $data['id']; ?>"><?php echo $options[$data['id']]; ?></textarea></div>
+									<div class="title"><span><label for="<?php echo $data['id']; ?>"><?php echo $data['title']; ?></label></span></div>
+									<div class="std"><textarea id="<?php echo $data['id']; ?>" name="<?php echo $data['id']; ?>"><?php echo $options[$data['id']]; ?></textarea></div>
 									<div class="desc"><span><?php echo $data['desc']; ?></span></div>
 								</div>
 				<?php
@@ -252,7 +307,7 @@ function framework_admin(){
 						 	case 'select':
 				?>
 								<div class="row-data">
-									<div class="title"><span><?php echo $data['title']; ?></span></div>
+									<div class="title"><span><label for="<?php echo $data['id']; ?>"><?php echo $data['title']; ?></label></span></div>
 									<div class="std">
 										<select name="<?php echo $data['id']; ?>" id="<?php echo $data['id']; ?>">
 											<?php foreach ($data['options'] as $option) { ?>
@@ -267,7 +322,7 @@ function framework_admin(){
 						 	case 'checkbox':
 				?>
 								<div class="row-data">
-									<div class="title"><span><?php echo $data['title']; ?></span></div>
+									<div class="title"><span><label for="<?php echo $data['id']; ?>"><?php echo $data['title']; ?></label></span></div>
 									<div class="std">
 
 										<?php
@@ -287,7 +342,7 @@ function framework_admin(){
 						 	case 'radio':
 				?>
 								<div class="row-data">
-									<div class="title"><span><?php echo $data['title']; ?></span></div>
+									<div class="title"><span><label for="<?php echo $data['id']; ?>"><?php echo $data['title']; ?></label></span></div>
 									<div class="std">
 										<div class="toggle">
 											<?php 	if( $options[$data['id']] == 1 ||
@@ -319,7 +374,7 @@ function framework_admin(){
 			?>			
 			
 			<input type="hidden" name="action" value="save" />
-        	<input type="hidden" name="security" value="<?php echo wp_create_nonce('framework_options'); ?>" />
+        	<input type="hidden" name="security" value="<?php echo wp_create_nonce(FRAMEWORK_NAME.'_options'); ?>" />
 			<input type="submit" value="Save" class="saved"><div id="save"></div>
 			</form>
 		</div>

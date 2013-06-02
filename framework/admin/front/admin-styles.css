@@ -16,25 +16,25 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1.8;
 	margin: 0;
 }
-h1 {
+.kent h1 {
 	font-size: 40px;
 }
 .std select {
 	width: 250px;
 	height: 40px;
 }
-textarea {
+.kent textarea {
 	width: 400px;
 	height: 150px;
 	padding: 10px;
 }
-input[type="text"] {
+.kent input[type="text"] {
 	outline: none;
 	padding: 10px;
 	border-radius: 5px;
 	width: 400px;
 }
-input[type="submit"] {
+.kent input[type="submit"] {
 	outline: none;
 	padding: 12px 15px;
 	background: rgb(46, 204, 113);
@@ -42,13 +42,13 @@ input[type="submit"] {
 	margin: 30px;
 	color: rgb(255, 255, 255);
 }
-input[type="submit"]:active {
+.kent input[type="submit"]:active {
 	background: rgb(39, 173, 96);
 }
-input[type="submit"]:hover {
+.kent input[type="submit"]:hover {
 	background: rgb(85, 217, 141);
 }
-input[type="submit"].disabled{
+.kent input[type="submit"].disabled{
 	background-color: rgb(204, 204, 204);
 }
 /* Flat UI */
@@ -142,7 +142,7 @@ input[type="submit"].disabled{
 .toggle.toggle-icon .toggle-radio:first-child {
 	text-align: left; 
 }
-label {
+.kent label {
 	display: block;
 	margin-bottom: 5px;
 }
@@ -302,11 +302,12 @@ label {
 	margin-left: 250px;
 	margin-right: 20px;
 	overflow: hidden;
+	min-height: 500px;
 }
 .hide {
 	display: none;
 }
-.top {
+.f-top {
 	margin-right: 20px;
 	position: relative;
 	z-index: 100;
@@ -314,23 +315,28 @@ label {
 	color: #FFF;
 	border-radius: 10px 10px 0 0;
 }
-.bottom {
+.f-bottom {
 	margin-right: 20px;
 	position: relative;
 	z-index: 100;
 	background: rgba(250, 147, 89, 0.1);
 	color: #FFF;
 }
-.top .brand{
+.brand{
+	float: left;
+	padding: 23px 0px 23px 30px;
+	margin: 0;
+	font-size: 25px;
+	background: #3BAAF5;
+	display: block;
+	width: 220px;
+	color: #FFF;
 	font-weight: 400;
-	font-size: 42px;
-	line-height: 80px;
-	margin-left: 30px;
-	font-family: "Raleway",sans-serif;
+	font-family: "Raleway", sans-serif;
 }
-.top .version{
-	float: right;
-	margin: 17px;
+.brand span {
+	font-size: 12px;
+	padding-left: 14px;
 }
 .upload_button {
 	display: inline;
