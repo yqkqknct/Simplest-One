@@ -289,10 +289,10 @@ function get_timthumb( $size = 'small' ){
 	$img1 = get_feature_image();
 	if ( $img1 ):
 		if( $size == 'small'):
-			return bloginfo('template_url') . "/framework/thumb/timthumb.php?src=" . $img1 . "&h=400&w=225&zc=1";	
+			return bloginfo('template_url') . "/framework/thumb/timthumb.php?src=" . $img1 . "&w=400&h=225&zc=1";	
 		endif;
 		if( $size == 'banner'):
-			return bloginfo('template_url') . "/framework/thumb/timthumb.php?src=" . $img1 . "&h=720&w=405&zc=1";	
+			return bloginfo('template_url') . "/framework/thumb/timthumb.php?src=" . $img1 . "&w=720&h=405&zc=1";	
 		endif;
 	endif;
 }
