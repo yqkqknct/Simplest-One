@@ -1,12 +1,11 @@
 <?php get_header(); ?>
 <div class="gallery">
-<?php while ( have_posts() ) : the_post(); $i = 0; ?>
+<?php while ( have_posts() ) : the_post();  ?>
 	<?php if ( $wp_query->current_post <= 1) { ?>
 			<?php if ( get_feature_image() ): ?>
-			<div class="gallery-half" id="gallery<?php echo $i; ?>"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><img src="<?php echo get_timthumb('banner'); ?>"></a></div>
+			<div class="gallery-half" id="gallery<?php echo $wp_query->current_post; ?>"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><img src="<?php echo get_timthumb('banner'); ?>"></a></div>
 			<?php endif; ?>
 <?php 
-			$i++;
 		}
 	endwhile; 
 ?>
