@@ -4,10 +4,13 @@
 ## Information
 * Demo : http://demo.fundesigner.net/?themedemo=simplestone
 * Admin Panel：Kent Control
+
 ## Javascript Module
 * jQuery
 * Macho.js
+
 ## Resource
 * SASS
+
 ## Licence
 * GPL3
