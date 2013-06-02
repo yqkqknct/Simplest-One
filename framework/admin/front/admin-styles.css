@@ -260,7 +260,7 @@ h1, h2, h3, h4, h5, h6 {
 	bottom: 0;
 	width: 250px;
 	height: 100%;
-	background: rgba(111, 176, 236, 0.1);
+	background: #F0F6FC;
 }
 .navigation{
 	float: left;
@@ -278,7 +278,7 @@ h1, h2, h3, h4, h5, h6 {
 	cursor: pointer;
 }
 .navigation li.active {
-	background: rgba(111, 176, 236, 0.5);
+	background: #AFD3F4;
 	color: rgb(255, 255, 255);
 }
 .navigation li i {
