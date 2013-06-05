@@ -5,6 +5,7 @@
 Simple and clean Layout, and some page just has one column. Most is simple. Hope you like it :)
 
 ## Information
+* Article : http://fundesigner.net/wordpress-theme-simplestone
 * Demo : http://demo.fundesigner.net/?themedemo=simplestone
 * Admin Panel：Kent Control
 * Timthumb ( the newest version)
