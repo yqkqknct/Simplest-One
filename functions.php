@@ -5,8 +5,8 @@ include "framework/admin/admin.php";
 
 require "framework/update.php";
 $update_checker = new ThemeUpdateChecker(
-    'simplest',
-    'http://theme.fundesigner.net/simplest/info.json'
+    'simplestone',
+    'http://theme.fundesigner.net/simplestone/info.json'
 );
 
 ?>
