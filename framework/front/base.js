@@ -19,4 +19,33 @@ jQuery(document).ready(function($) {
 		    }
     });
     $('p, h1').macho();
+    $("#gotop").click(function(e) {
+		$("html,body").animate({
+			scrollTop : 0
+		}, 1000);
+		event.stopPropagation();
+		event.preventDefault();
+	});
+	$("#sc_comments").click(function(e) {
+		$("html,body").animate({
+			scrollTop: $("#comments").offset().top
+		}, 1000);
+		event.stopPropagation();
+		event.preventDefault();
+	});
+	$(".sc_facebook , .sc_google").hover(function() {
+		$(this).children().fadeIn("fast");
+	}, function() {
+		$(this).children().fadeOut("fast");
+	}, 500);
+	$(window).load(function() {
+	    $(window).scroll(function(evt) {
+	    	var y = $(this).scrollTop();
+	        if (y > 100) {
+	        	$("#gotop").fadeIn("fast");
+	        } else {
+	        	$("#gotop").fadeOut("fast");
+	        }
+	    });
+	});
 });

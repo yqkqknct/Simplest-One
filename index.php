@@ -2,7 +2,7 @@
 <div class="gallery">
 <?php while ( have_posts() ) : the_post();  ?>
 	<?php if ( $wp_query->current_post <= 1) { ?>
-			<?php if ( get_feature_image() ): ?>
+			<?php if ( get_feature_image()  && is_option("post_on") ): ?>
 			<div class="gallery-half" id="gallery<?php echo $wp_query->current_post; ?>"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><img src="<?php echo get_timthumb('banner'); ?>"></a></div>
 			<?php endif; ?>
 <?php 
@@ -33,7 +33,7 @@
 	?>
 	<article class="article">
 		<div class="article-thumb">
-			<?php if ( get_feature_image() ): ?>
+			<?php if ( get_feature_image() && is_option("post_on") ): ?>
 			<img src="<?php echo get_timthumb('small'); ?>" title="<?php the_title(); ?>">
 			<?php endif; ?>
 		</div>

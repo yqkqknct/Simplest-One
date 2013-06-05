@@ -7,6 +7,6 @@
 </div>
 
 </div>
-<?php wp_footer() ?>
+<?php fixeds(); wp_footer() ?>
 </body>
 </html>

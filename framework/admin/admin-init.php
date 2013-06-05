@@ -83,12 +83,12 @@ function framework_options_init( $type = 'list'){
 		$framework_options['ads'] = array(
 			array(	"title" => "文章 More 處廣告",
 					"id" => "gad_top",
-					"desc" => "廣告寬度為 300px，建議為 300x225。請填入廣告代碼。",
+					"desc" => "廣告寬度建議為 300px，建議為 300x250。請填入廣告代碼。",
 					"type" => "textarea"
 				),
 			array(	"title" => "文章末處廣告",
 					"id" => "gad_end",
-					"desc" => "廣告寬度為 300px，建議為 300x225。請填入廣告代碼。",
+					"desc" => "廣告寬度建議為 300px，建議為 300x250。請填入廣告代碼。",
 					"type" => "textarea"
 				),			
 		);			

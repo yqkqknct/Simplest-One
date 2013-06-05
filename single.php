@@ -33,11 +33,11 @@
 				</div>
 			</div>
 			</div>
-		</div>
 		<?php postauthor_init(); ?>
-	</article>
-	<?php endwhile; wp_reset_query(); ?>
+			<?php endwhile; wp_reset_query(); ?>
 	<div id="comments" class="comments">
 		<?php comments_template();?>
 	</div>
+	</article>
+
 <?php get_footer(); ?>

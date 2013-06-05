@@ -186,7 +186,7 @@ if ( function_exists( 'add_theme_support'  ) ) {
     add_theme_support( 'post-thumbnails' );
 }
 
-// Scopio
+// Scopio http://steachs.com
 function pagenavi($range = 5){
 	global $paged, $wp_query;
 	if ( !$max_page ) {
@@ -337,7 +337,7 @@ function mytheme_comment($comment, $args, $depth){
 
 <?php }
 
-function fixed_media(){
+function fixeds(){
 ?>
 <div class="sc hidden-phone">
 <?php if( is_option('fb_page') ) { ?>
@@ -346,10 +346,10 @@ function fixed_media(){
 		<div class="fb-like-box" data-href="<?php the_option('fb_page'); ?>" data-width="280" data-height="300" data-show-faces="true" data-border-color="#FFF" data-stream="false" data-header="false"></div>
 	</div>
 </div>
-<?php } if( is_option('gp_page') ) { ?>
+<?php } if( is_option('g_page') ) { ?>
 <div class="sc_google">
 	<div>
-		<div class="g-plus" data-href="<?php the_option('gp_page'); ?>" data-rel="publisher" data-width="280"></div>
+		<div class="g-plus" data-href="<?php the_option('g_page'); ?>" data-rel="publisher" data-width="280"></div>
 	</div>
 </div>
 <?php
@@ -371,7 +371,9 @@ function random_lists($num_limit = 7){
 ?>
 				<article class="article">
 					<div class="article-thumb">
+						<?php if ( get_feature_image() && is_option("post_on") ): ?>
 						<img src="<?php echo get_timthumb('small'); ?>" title="<?php the_title(); ?>">
+						<?php endif; ?>					
 					</div>
 					<div class="article-cont">
 						<h1 class="cont-title-small">

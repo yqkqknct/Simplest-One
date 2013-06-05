@@ -18,9 +18,9 @@
 		<meta name="generator" content="WordPress" />
 		<?php wp_head(); ?>
 		<script src="<?php bloginfo('template_directory') ?>/framework/front/macho.js" type="text/javascript" /></script>
-		<script src="<?php bloginfo('template_directory') ?>/framework/front/base.js" type="text/javascript" /></script>
+		<script src="<?php bloginfo('template_directory') ?>/framework/front/base.js?ver=1.0" type="text/javascript" /></script>
 		<link rel="Shortcut Icon" type="image/x-icon" href="<?php the_option('favicon');?>" />
-		<link href="<?php bloginfo('template_directory') ?>/stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
+		<link href="<?php bloginfo('template_directory') ?>/stylesheets/screen.css?ver=1.0" media="screen" rel="stylesheet" type="text/css" />
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
 		<!--[if lte IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -71,7 +71,7 @@
 						<?php endif; ?>
 					</hgroup>
 					<div class="float-primarymenu">
-						<?php wp_nav_menu( array( 'items_wrap' => '<ul class="nav">%3$s</ul>', 'theme_location' => 'primary-menu' ) ); ?>
+						<?php wp_nav_menu( array( 'menu_class' => 'nav', 'theme_location' => 'primary-menu' ) ); ?>
 					</div>
 				</header>
 				<div class="container">

@@ -2,8 +2,10 @@
 get_header();
 ?>
 	<section>
+		
 			<?php  if ( have_posts()) : the_post(); ?>
-			<?php breadcrumb_init(get_the_author()); ?>
+			
+			<?php  breadcrumb_init(get_the_author()); ?>
 			<?php  if ( is_author() ) { ?>
 			<section class="article-author-archive">
 				<div class="author-top"><span>關於作者</span></div>
@@ -24,11 +26,15 @@ get_header();
 					</p>
 				</div>
 			</section>			
-			<?php } ?>
-			<?php $i = 0; while (have_posts()) : the_post(); $i++; ?>
+			<?php } rewind_posts(); ?>
+			
+			<?php while ( have_posts() ) : the_post(); ?>
+			
 				<article class="article">
 					<div class="article-thumb">
+						<?php if ( get_feature_image() && is_option("post_on") ): ?>
 						<img src="<?php echo get_timthumb('small'); ?>" title="<?php the_title(); ?>">
+						<?php endif; ?>	
 					</div>
 					<div class="article-cont">
 						<h1 class="cont-title-small">
