@@ -10,6 +10,10 @@ Simple and clean Layout, and some page just has one column. Most is simple. Hope
 * Admin Panel：Kent Control
 * Timthumb ( the newest version)
 
+## Version
+
+* 1.1 : 修正最後一頁頁碼造成頁尾樣式錯誤之錯誤。
+
 ## Javascript Module
 * jQuery
 * Macho.js

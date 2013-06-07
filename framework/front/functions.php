@@ -233,6 +233,8 @@ function pagenavi($range = 5){
 		echo "</li>";
 		if($paged != $max_page){
 			echo "<li class='navi-num'><a href='" . get_pagenum_link($max_page) . "' class='extend' title='最後一頁'>最後一頁</a></li></ul>";
+		} else {
+			echo "</ul>";
 		}
 	}
 }
