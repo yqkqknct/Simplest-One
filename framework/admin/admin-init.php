@@ -138,16 +138,20 @@ function framework_header(){
 	wp_enqueue_script('normal-js');
 }
 
-add_action( 'admin_enqueue_scripts', 'mw_enqueue_color_picker' );
+
 function mw_enqueue_color_picker() {
     wp_enqueue_style( 'wp-color-picker' );
-    wp_enqueue_script( 'my-script-handle', plugins_url('my-script.js', __FILE__ ), array( 'wp-color-picker' ), false, true );
+    wp_enqueue_script( 'my-script-handle', plugins_url(), array( 'wp-color-picker' ), false, true );
+}
+
+if ( isset($_GET['page']) && $_GET['page'] == 'kentcontrol') {
+	add_action('admin_print_scripts', 'mw_enqueue_color_picker' );
+	add_action('admin_print_scripts', 'framework_header');
 }
 
 function framework_addition(){
 	add_menu_page('Kent Control', 'Kent Control', 'administrator', 'kentcontrol', 'framework_admin','', 50);
 	add_action('admin_head', 'framework_save');
-	framework_header();
 }
 
 add_action('admin_menu', 'framework_addition');

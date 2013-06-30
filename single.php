@@ -16,8 +16,8 @@
 				<?php get_sidebar(); ?>
 			</aside>
 			<div class="cont">
-
 				<?php the_content(); ?>
+				<div class="link_pages"><?php wp_link_pages(array('before' => '<strong>文章未完，請翻下一頁： </strong> ', 'after' => '', 'next_or_number' => 'number')); ?></div>
 				<div class="gad">
 					<div class="gad-code"><?php the_option('gad_end') ?></div>
 				</div>

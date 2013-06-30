@@ -766,6 +766,27 @@ article p {
   display: none;
 }
 
+.aligncenter {
+  display: block;
+  margin: 0 auto;
+}
+
+.link_pages {
+  color: #666666;
+  font-size: 20px;
+  line-height: 1.8;
+}
+.link_pages a {
+  color: #eb5252;
+  padding: 5px 12px;
+  font-weight: bold;
+}
+.link_pages a:hover {
+  background: #666666;
+  color: white;
+  border-radius: 50%;
+}
+
 @media screen and (max-width: 767px) {
   .right-sidebar {
     display: none;
